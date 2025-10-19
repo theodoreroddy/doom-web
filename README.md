@@ -1,6 +1,6 @@
 # 🎮 Doom Web Game
 
-A web-based first-person shooter that loads and renders classic Doom WAD files! Built with Three.js and vanilla JavaScript, this project parses the original Doom WAD format to extract maps, textures, and geometry, then renders them in a fully playable 3D environment.
+Walk around Doom maps in your web browser.
 
 ![Doom Web Game](https://img.shields.io/badge/Doom-WebGL-green)
 ![Three.js](https://img.shields.io/badge/Three.js-0.158-blue)
