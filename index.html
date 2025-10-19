@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doom Web Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            overflow: hidden;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #ui {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid #0f0;
+            z-index: 100;
+        }
+
+        #ui h1 {
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        #controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            background: #000;
+            color: #0f0;
+            border: 2px solid #0f0;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #0f0;
+            color: #000;
+            box-shadow: 0 0 10px #0f0;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        label {
+            margin-right: 10px;
+            text-shadow: 0 0 5px #0f0;
+        }
+
+        select {
+            background: #000;
+            color: #0f0;
+            border: 2px solid #0f0;
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        #gameCanvas {
+            flex: 1;
+            display: block;
+            cursor: pointer;
+        }
+
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border: 2px solid #0f0;
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 300px;
+            z-index: 50;
+        }
+
+        #hudCanvas {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            z-index: 60;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        #instructions {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            padding: 30px;
+            border: 3px solid #0f0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 0 30px #0f0;
+        }
+
+        #instructions h2 {
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        #instructions p {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="ui">
+            <h1>🎮 DOOM Web Game</h1>
+            <div id="controls">
+                <div class="control-group">
+                    <label>Map:</label>
+                    <select id="mapSelect" disabled>
+                        <option value="">Loading...</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <button id="startBtn" disabled>Start Game</button>
+                </div>
+            </div>
+        </div>
+        <div id="gameCanvas"></div>
+        <div id="info">
+            <div><strong>Status:</strong> <span id="status">Loading DOOM.WAD...</span></div>
+            <div><strong>Position:</strong> <span id="position">-</span></div>
+            <div><strong>FPS:</strong> <span id="fps">-</span></div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+

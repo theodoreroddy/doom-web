@@ -1,0 +1,17 @@
+# WAD files
+public/DOOM.WAD
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build output
+dist/
+
+# OS files
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
